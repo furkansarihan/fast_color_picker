@@ -21,56 +21,61 @@ class FastColorPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
-              child: SelectedColor(
-                icon: icon,
-                selectedColor: selectedColor,
-              ),
-            ),
-            Expanded(
-              child: Container(
-                height: 52,
-                child: PageView(
-                  controller: pageController,
-                  children: [
-                    Row(
-                      children: createColors(context, Constants.colors1),
-                    ),
-                    Row(
-                      children: createColors(context, Constants.colors2),
-                    ),
-                    Row(
-                      children: createColors(context, Constants.colors3),
-                    ),
-                  ],
+    return SizedBox(
+      height: 66,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 8,
+                ),
+                child: SelectedColor(
+                  icon: icon,
+                  selectedColor: selectedColor,
                 ),
               ),
-            )
-          ],
-        ),
-        SmoothPageIndicator(
-          controller: pageController, // PageController
-          count: 3,
-          effect: ScrollingDotsEffect(
-            spacing: 10,
-            activeDotColor: Colors.white,
-            dotColor: Colors.white24,
-            dotHeight: 10,
-            dotWidth: 10,
-            activeDotScale: 1,
+              Expanded(
+                child: SizedBox(
+                  height: 52,
+                  child: PageView(
+                    controller: pageController,
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      Row(
+                        children: createColors(context, Constants.colors1),
+                      ),
+                      Row(
+                        children: createColors(context, Constants.colors2),
+                      ),
+                      Row(
+                        children: createColors(context, Constants.colors3),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
-        ),
-        Container(height: 8)
-      ],
+          SmoothPageIndicator(
+            controller: pageController, // PageController
+            count: 3,
+            effect: const ScrollingDotsEffect(
+              spacing: 8,
+              activeDotColor: Colors.white,
+              dotColor: Colors.white24,
+              dotHeight: 8,
+              dotWidth: 8,
+              activeDotScale: 1,
+            ),
+          ),
+          SizedBox(height: 6)
+        ],
+      ),
     );
   }
 
@@ -158,7 +163,7 @@ class SelectedColor extends StatelessWidget {
           color: Colors.white,
         ),
         boxShadow: [
-          BoxShadow(
+          const BoxShadow(
             blurRadius: 6,
             color: Colors.black38,
           ),
