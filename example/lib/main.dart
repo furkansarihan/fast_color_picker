@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: const Text('story_painter'),
+        title: const Text('fast_color_picker'),
         actions: [],
       ),
       body: Center(

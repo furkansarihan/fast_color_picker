@@ -1,6 +1,6 @@
 name: fast_color_picker
 description: This package provides a color picker like in story editor of Instagram.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/furkansarihan/fast_color_picker
 
 environment:
@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  spring_button: 1.0.13
-  smooth_page_indicator: 0.2.0
+  spring_button: ^1.0.14
+  smooth_page_indicator: ^0.2.0
 
 dev_dependencies:
   flutter_test:
