@@ -10,7 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  spring_button: ^1.0.14
+  spring_button:
+    git: 
+      url: https://github.com/furkansarihan/flutter-spring-button.git
+      path: spring_button
+      ref: ec028129682d17d5834f448390babddc96aab62e
   smooth_page_indicator: ^0.2.0
 
 dev_dependencies:
