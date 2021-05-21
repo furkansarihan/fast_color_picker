@@ -9,14 +9,14 @@ final PageController pageController = PageController(keepPage: true);
 
 class FastColorPicker extends StatelessWidget {
   final Color selectedColor;
-  final IconData icon;
+  final IconData? icon;
   final Function(Color) onColorSelected;
 
   const FastColorPicker({
-    Key key,
+    Key? key,
     this.icon,
     this.selectedColor = Colors.white,
-    this.onColorSelected,
+    required this.onColorSelected,
   }) : super(key: key);
 
   @override
@@ -91,14 +91,15 @@ class FastColorPicker extends StatelessWidget {
           SpringButtonType.OnlyScale,
           Padding(
             padding: EdgeInsets.all(size * 0.1),
-            child: Container(
+            child: AnimatedContainer(
               width: size,
               height: size,
+              duration: Duration(milliseconds: 100),
               decoration: BoxDecoration(
                 color: c,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  width: 2,
+                  width: c == selectedColor ? 4 : 2,
                   color: Colors.white,
                 ),
                 boxShadow: [
@@ -111,10 +112,11 @@ class FastColorPicker extends StatelessWidget {
             ),
           ),
           onTap: () {
-            onColorSelected?.call(c);
+            onColorSelected.call(c);
           },
           useCache: false,
-          scaleCoefficient: 0.95,
+          scaleCoefficient: 0.9,
+          duration: 1000,
         ),
     ];
   }
@@ -137,9 +139,9 @@ class FastColorPicker extends StatelessWidget {
 
 class SelectedColor extends StatelessWidget {
   final Color selectedColor;
-  final IconData icon;
+  final IconData? icon;
 
-  const SelectedColor({Key key, this.selectedColor, this.icon})
+  const SelectedColor({Key? key, required this.selectedColor, this.icon})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
