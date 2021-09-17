@@ -1,3 +1,7 @@
+## [0.1.1]
+
+* dependency upgrade
+
 ## [0.1.0]
 
 * nullsafety migration.
