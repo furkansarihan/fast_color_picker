@@ -9,6 +9,9 @@ final PageController pageController = PageController(keepPage: true);
 
 class FastColorPicker extends StatelessWidget {
   final Color selectedColor;
+  final List<Color>? colors1;
+  final List<Color>? colors2;
+  final List<Color>? colors3;
   final IconData? icon;
   final Function(Color) onColorSelected;
 
@@ -16,6 +19,9 @@ class FastColorPicker extends StatelessWidget {
     Key? key,
     this.icon,
     this.selectedColor = Colors.white,
+    this.colors1,
+    this.colors2,
+    this.colors3,
     required this.onColorSelected,
   }) : super(key: key);
 
@@ -47,13 +53,16 @@ class FastColorPicker extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     children: [
                       Row(
-                        children: createColors(context, Constants.colors1),
+                        children:
+                            createColors(context, colors1 ?? Constants.colors1),
                       ),
                       Row(
-                        children: createColors(context, Constants.colors2),
+                        children:
+                            createColors(context, colors2 ?? Constants.colors2),
                       ),
                       Row(
-                        children: createColors(context, Constants.colors3),
+                        children:
+                            createColors(context, colors3 ?? Constants.colors3),
                       ),
                     ],
                   ),
